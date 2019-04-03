@@ -12,38 +12,53 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import java.net.URL;
 import java.awt.*;
+import java.math.BigInteger;
+import java.nio.charset.Charset;
 import java.io.File;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 
 public class ChallengeCard {
     final double sizeX = 0, sizeY = 0;
-    String  imgPath, blackImgPath, victorySoundPath, failSoundPath;
+    String  imgPath, blackImgPath, victorySoundPath, failSoundPath,password;
     VBox card=new VBox();
     Button cardButton = new Button();
-    TextField password = new TextField();
+    TextField passwordField = new TextField();
     ChallengeCard(){
-        card.getChildren().addAll(cardButton,password);
+        card.getChildren().addAll(cardButton,passwordField);
     }
-    ChallengeCard( String imgPath, String blackImgPath, String victorySoundPath, String failSoundPath) {
+    ChallengeCard(String password,String imgPath, String blackImgPath, String victorySoundPath, String failSoundPath) {
         this.blackImgPath = blackImgPath;
         this.imgPath = imgPath;
         this.victorySoundPath = victorySoundPath;
         this.failSoundPath = failSoundPath;
         setImage(blackImgPath);
-        card.getChildren().addAll(cardButton,password);
+        card.getChildren().addAll(cardButton,passwordField);
+         this.password=toHex(password);
+
+
 
     }
 
-    static VBox createCard() {
+     VBox createCard() {
         VBox card=new VBox();
         Button cardButton = new Button("lalala");
         TextField password = new TextField();
+        password.setOnKeyPressed(e-> {
+                    if (isPasswordCorrect() && password.getText().length() == 6) {
+                        playSound(victorySoundPath);
+                        setImage(imgPath);
+                    } else
+                        playSound(failSoundPath);
+                });
 
         card.getChildren().addAll(cardButton,password);
         return card;
 
     }
+
+
+
     public static String toHex(String arg) {
         return String.format("%x", new BigInteger(1, arg.getBytes(Charset.defaultCharset())));
     }
@@ -60,10 +75,17 @@ public class ChallengeCard {
         ImageView iv1=new ImageView(playI);
         iv1.setFitHeight(67);
         iv1.setFitWidth(69);
-        cardButton.setGraphic(iv1);;
+        cardButton.setGraphic(iv1);
+    }
+        boolean isPasswordCorrect() {
+        if (passwordField.getText().equals(passwordField))
+                return true;
+        return false;
+
+
     }
     void init(){
-        card.getChildren().addAll(cardButton,password);
+       // card.getChildren().addAll(cardButton,password);
     }
 }
 

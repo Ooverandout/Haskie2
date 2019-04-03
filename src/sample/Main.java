@@ -32,9 +32,10 @@ public class Main extends Application  {
         int i=0;
         for(String mate:people){
             String base = "file:///C:\\Users\\ADMROZIK\\IdeaProjects\\Haskie\\images\\" + mate;
-            cards[i] = new ChallengeCard(base + "img.jpg",base + "blackimg.jpg", mate + "vic.mp3", mate + "fail.mp3");
+            cards[i] = new ChallengeCard("x",base + "img.jpg",base + "blackimg.jpg", mate + "vic.mp3", mate + "fail.mp3");
             i++;
         }
+
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         Image playI=new Image("file:///C:\\test.jpg");
         ImageView iv1=new ImageView(playI);
