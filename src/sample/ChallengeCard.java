@@ -35,7 +35,18 @@ public class ChallengeCard {
         setImage(blackImgPath);
         card.getChildren().addAll(cardButton,passwordField);
          this.password=toHex(password);
-
+         System.out.println(this.password);
+        passwordField.setOnKeyReleased(e-> {
+            if (isPasswordCorrect() && passwordField.getText().length() == 6) {
+                playSound(victorySoundPath);
+                setImage(imgPath);
+                passwordField.setVisible(false);
+            }
+            else if (passwordField.getText().length() >= 6) {
+                playSound(failSoundPath);
+                passwordField.setText("");
+            }
+        });
 
 
     }
@@ -78,7 +89,7 @@ public class ChallengeCard {
         cardButton.setGraphic(iv1);
     }
         boolean isPasswordCorrect() {
-        if (passwordField.getText().equals(passwordField))
+        if (passwordField.getText().equals(password))
                 return true;
         return false;
 

@@ -32,36 +32,14 @@ public class Main extends Application  {
         int i=0;
         for(String mate:people){
             String base = "file:///C:\\Users\\ADMROZIK\\IdeaProjects\\Haskie\\images\\" + mate;
-            cards[i] = new ChallengeCard("x",base + "img.jpg",base + "blackimg.jpg", mate + "vic.mp3", mate + "fail.mp3");
+            cards[i] = new ChallengeCard(mate.substring(0,3),base + "img.jpg",base + "blackimg.jpg", mate + "vic.mp3", mate + "fail.mp3");
             i++;
         }
-
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        Image playI=new Image("file:///C:\\test.jpg");
-        ImageView iv1=new ImageView(playI);
-        iv1.setFitHeight(67);
-        iv1.setFitWidth(69);
-        GridPane pane= new GridPane();
-        HBox mainHbox= new HBox();
-        TextField txt=new TextField();
-
-        mainHbox.getChildren().add(new Button("",iv1));
-        mainHbox.getChildren().add(txt);
-
-        BorderPane bPane= new BorderPane();
-        HBox hbox= new HBox();
+        Scenery scenery = new Scenery();
         for(ChallengeCard chalCard:cards) {
-            hbox.getChildren().add(chalCard.card);
+            scenery.hbox.getChildren().add(chalCard.card);
         }
-
-        bPane.setCenter(hbox);
-
-
-        System.out.println("DUPATESTGIT");
-        System.out.println("DUPATESTGIT2");
-
-
-        primaryStage.setScene(new Scene(bPane, 300, 275));
+        primaryStage.setScene(new Scene(scenery.hbox, 300, 275));
 
         primaryStage.show();
     }
