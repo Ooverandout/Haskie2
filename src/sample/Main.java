@@ -34,14 +34,14 @@ public class Main extends Application  {
 
         int i=0;
         for(String mate:people){
-            String base = "file:///D:\\Projekty\\Haskie2\\src\\images\\" + mate;
+            String base = "file:///C:\\Users\\ADMROZIK\\IdeaProjects\\Haskie2\\src\\images\\" + mate;
             cards[i] = new ChallengeCard(mate.substring(0,3),base + "img.jpg",base + "blackimg.jpg", mate + "vic.mp3", mate + "fail.mp3");
             i++;
         }
         Scenery scenery = new Scenery();
         BorderPane bpane=new BorderPane();
 
-        Image playI=new Image("file:///D:\\Projekty\\Haskie2\\src\\images\\ponnies.jpg");
+        Image playI=new Image("file:///C:\\Users\\ADMROZIK\\IdeaProjects\\Haskie2\\src\\images\\ponnies.jpg");
         ImageView iv1=new ImageView(playI);
         iv1.setFitHeight(950);
         iv1.setFitWidth(1800);

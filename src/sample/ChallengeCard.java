@@ -37,7 +37,9 @@ public class ChallengeCard {
 
         setImage(blackImgPath);
         cardButton.setDisable(true);
-
+        cardButton.setOnAction(e->{
+            playSound(failSoundPath);
+        });
         card.getChildren().addAll(cardButton,passwordField);
          this.password=toHex(password);
          System.out.println(this.password);
