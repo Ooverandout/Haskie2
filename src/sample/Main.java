@@ -43,8 +43,8 @@ public class Main extends Application  {
 
         Image playI=new Image("file:///C:\\Users\\ADMROZIK\\IdeaProjects\\Haskie2\\src\\images\\ponnies.jpg");
         ImageView iv1=new ImageView(playI);
-        iv1.setFitHeight(950);
-        iv1.setFitWidth(1800);
+        iv1.setFitHeight(1180);
+        iv1.setFitWidth(2020);
         bpane.getChildren().add(iv1);
 
 
@@ -54,8 +54,13 @@ public class Main extends Application  {
             scenery.hbox.getChildren().add(chalCard.card);
         }
         bpane.setCenter(scenery.hbox);
-        Text header= new Text("MACIEK QUEST");
-        header.setFont(Font.font("Verdana",50));
+        Image headerimg=new Image("file:///D:\\Projekty\\Haskie2\\src\\images\\SIGN.png");
+        ImageView header=new ImageView(headerimg);
+        //iv1.setFitHeight(950);
+       // iv1.setFitWidth(1800);
+        //bpane.getChildren().add(iv1);
+
+        //header.setFont(Font.font("Verdana",50));
         bpane.setTop(header);
         BorderPane.setAlignment(bpane.getCenter(),Pos.CENTER);
         BorderPane.setAlignment(bpane.getTop(),Pos.CENTER);
@@ -64,9 +69,8 @@ public class Main extends Application  {
 
 
 
-
-        primaryStage.setScene(new Scene(bpane, 1800, 950));
-
+        primaryStage.setResizable(false);
+        primaryStage.setScene(new Scene(bpane, 1920, 1080));
 
         primaryStage.show();
     }
