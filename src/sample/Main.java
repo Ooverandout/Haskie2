@@ -16,6 +16,8 @@ import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 
+import java.math.BigInteger;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.stream.IntStream;
@@ -29,11 +31,10 @@ public class Main extends Application  {
 
         int i=0;
         for(String mate:people){
-            String base = "file:///C:\\" + mate;
-            cards[i] = new ChallengeCard(base + "img.jpg",base + "blackimg.jpg",base + "vic.mp3",base + "fail.mp3");
+            String base = "file:///C:\\Users\\ADMROZIK\\IdeaProjects\\Haskie\\images\\" + mate;
+            cards[i] = new ChallengeCard(base + "img.jpg",base + "blackimg.jpg", mate + "vic.mp3", mate + "fail.mp3");
             i++;
         }
-
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         Image playI=new Image("file:///C:\\test.jpg");
         ImageView iv1=new ImageView(playI);
@@ -48,7 +49,9 @@ public class Main extends Application  {
 
         BorderPane bPane= new BorderPane();
         HBox hbox= new HBox();
-        hbox.getChildren().addAll(ChallengeCard.createCard(),ChallengeCard.createCard(),ChallengeCard.createCard());
+        for(ChallengeCard chalCard:cards) {
+            hbox.getChildren().add(chalCard.card);
+        }
 
         bPane.setCenter(hbox);
 
