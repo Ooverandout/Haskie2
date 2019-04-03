@@ -16,32 +16,39 @@ import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.stream.IntStream;
 
 public class Main extends Application  {
 
-
-    int suma(int a,int b){
-        return a+b;
-    }
-
     @Override
     public void start(Stage primaryStage) throws Exception{
+        String[] people = {"Maciek","Jakub","Robert","Adam","Wawrzyniec"};
+        ChallengeCard[] cards = new ChallengeCard[people.length];
+
+        int i=0;
+        for(String mate:people){
+            String base = "file:///C:\\" + mate;
+            cards[i] = new ChallengeCard(base + "img.jpg",base + "blackimg.jpg",base + "vic.mp3",base + "fail.mp3");
+            i++;
+        }
+
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        Image playI=new Image("file:///C:\\Users\\Ja\\Desktop\\JPG\\Ja.png");
+        Image playI=new Image("file:///C:\\test.jpg");
         ImageView iv1=new ImageView(playI);
         iv1.setFitHeight(67);
         iv1.setFitWidth(69);
         GridPane pane= new GridPane();
         HBox mainHbox= new HBox();
         TextField txt=new TextField();
+
         mainHbox.getChildren().add(new Button("",iv1));
         mainHbox.getChildren().add(txt);
 
         BorderPane bPane= new BorderPane();
         HBox hbox= new HBox();
-        hbox.getChildren().addAll(ChallengeCard.createCard(),ChallengeCard.createCard(),ChallengeCard.createCard(),ChallengeCard.createCard());
+        hbox.getChildren().addAll(ChallengeCard.createCard(),ChallengeCard.createCard(),ChallengeCard.createCard());
 
         bPane.setCenter(hbox);
 
