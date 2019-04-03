@@ -5,7 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -36,6 +36,9 @@ public class ChallengeCard {
         //cardButton.setMaxSize(280,780);
         setImage(blackImgPath);
         cardButton.setDisable(true);
+        cardButton.setPickOnBounds(true);
+        cardButton.setMinWidth(300);
+        cardButton.setMinHeight(620);
         cardButton.setOnAction(e->{
             playSound(failSoundPath);
         });
@@ -93,11 +96,20 @@ public class ChallengeCard {
         card.getChildren().add(mediaView);
     }
         private void setImage(String path){
-        javafx.scene.image.Image playI=new Image(path);
+        /*javafx.scene.image.Image playI=new Image(path);
         ImageView iv1=new ImageView(playI);
         iv1.setFitHeight(700);
         iv1.setFitWidth(320);
-        cardButton.setGraphic(iv1);
+        cardButton.setGraphic(iv1);8*/
+
+
+
+            javafx.scene.image.Image playI=new Image(path);
+            BackgroundImage bImage = new BackgroundImage(playI, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(cardButton.getWidth(), cardButton.getHeight(), true, true, true, false));
+            ImageView iv1=new ImageView(playI);
+            Background backGround = new Background(bImage);
+            cardButton.setBackground(backGround);
+
     }
         boolean isPasswordCorrect() {
         if (passwordField.getText().equals(password))
