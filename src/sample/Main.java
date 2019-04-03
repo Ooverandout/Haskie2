@@ -31,7 +31,7 @@ public class Main extends Application  {
 
         int i=0;
         for(String mate:people){
-            String base = "file:///C:\\Users\\ADMROZIK\\IdeaProjects\\Haskie\\images\\" + mate;
+            String base = "file:///C:\\Users\\ADMROZIK\\IdeaProjects\\Haskie2\\src\\images\\" + mate;
             cards[i] = new ChallengeCard(mate.substring(0,3),base + "img.jpg",base + "blackimg.jpg", mate + "vic.mp3", mate + "fail.mp3");
             i++;
         }
@@ -44,7 +44,7 @@ public class Main extends Application  {
         primaryStage.show();
     }
 
-
+        //fafa
     public static void main(String[] args) {
         launch(args);
     }
