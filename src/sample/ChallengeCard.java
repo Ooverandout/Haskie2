@@ -32,20 +32,30 @@ public class ChallengeCard {
         this.imgPath = imgPath;
         this.victorySoundPath = victorySoundPath;
         this.failSoundPath = failSoundPath;
+
+        cardButton.setMinSize(300,200);
+
         setImage(blackImgPath);
+        cardButton.setDisable(true);
+
         card.getChildren().addAll(cardButton,passwordField);
          this.password=toHex(password);
          System.out.println(this.password);
-        passwordField.setOnKeyReleased(e-> {
+
+         passwordField.setOnKeyReleased(e-> {
             if (isPasswordCorrect() && passwordField.getText().length() == 6) {
                 playSound(victorySoundPath);
                 setImage(imgPath);
+                cardButton.setDisable(false);
                 passwordField.setVisible(false);
+
             }
             else if (passwordField.getText().length() >= 6) {
                 playSound(failSoundPath);
                 passwordField.setText("");
             }
+
+
         });
 
 
@@ -84,8 +94,8 @@ public class ChallengeCard {
         private void setImage(String path){
         javafx.scene.image.Image playI=new Image(path);
         ImageView iv1=new ImageView(playI);
-        iv1.setFitHeight(67);
-        iv1.setFitWidth(69);
+        iv1.setFitHeight(800);
+        iv1.setFitWidth(300);
         cardButton.setGraphic(iv1);
     }
         boolean isPasswordCorrect() {
