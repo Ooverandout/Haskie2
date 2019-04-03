@@ -33,8 +33,7 @@ public class ChallengeCard {
         this.victorySoundPath = victorySoundPath;
         this.failSoundPath = failSoundPath;
 
-        cardButton.setMinSize(300,200);
-
+        //cardButton.setMaxSize(280,780);
         setImage(blackImgPath);
         cardButton.setDisable(true);
 
@@ -94,8 +93,8 @@ public class ChallengeCard {
         private void setImage(String path){
         javafx.scene.image.Image playI=new Image(path);
         ImageView iv1=new ImageView(playI);
-        iv1.setFitHeight(800);
-        iv1.setFitWidth(300);
+        iv1.setFitHeight(700);
+        iv1.setFitWidth(320);
         cardButton.setGraphic(iv1);
     }
         boolean isPasswordCorrect() {
