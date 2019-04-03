@@ -30,7 +30,7 @@ public class Main extends Application  {
         int i=0;
         for(String mate:people){
             String base = "file:///C:\\" + mate;
-            cards[i] = new ChallengeCard(base + "img.jpg",base + "blackimg.jpg",base + "vic.mp3",base + "fail.mp3");
+            cards[i] = new ChallengeCard("x",base + "img.jpg",base + "blackimg.jpg",base + "vic.mp3",base + "fail.mp3");
             i++;
         }
 
@@ -48,7 +48,7 @@ public class Main extends Application  {
 
         BorderPane bPane= new BorderPane();
         HBox hbox= new HBox();
-        hbox.getChildren().addAll(ChallengeCard.createCard(),ChallengeCard.createCard(),ChallengeCard.createCard());
+        //hbox.getChildren().addAll(ChallengeCard.createCard(),ChallengeCard.createCard(),ChallengeCard.createCard());
 
         bPane.setCenter(hbox);
 
