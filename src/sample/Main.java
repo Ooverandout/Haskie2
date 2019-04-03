@@ -46,7 +46,7 @@ public class Main extends Application  {
         bPane.setCenter(hbox);
 
 
-
+        System.out.println("DUPATESTGIT");
 
 
         primaryStage.setScene(new Scene(bPane, 300, 275));
