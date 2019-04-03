@@ -47,6 +47,7 @@ public class Main extends Application  {
 
 
         System.out.println("DUPATESTGIT");
+        System.out.println("DUPATESTGIT2");
 
 
         primaryStage.setScene(new Scene(bPane, 300, 275));
